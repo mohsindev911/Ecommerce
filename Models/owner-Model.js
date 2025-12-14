@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 
-const AdminSchema=mongoose.Schema({
+
+const OwnerSchema=mongoose.Schema({
     Name:String,
 img:String,
 email:String,
@@ -10,4 +11,4 @@ products:{
     default:[]
 }
 });
-module.exports=mongoose.model('admin',AdminSchema)
+module.exports=mongoose.model('owner',OwnerSchema)

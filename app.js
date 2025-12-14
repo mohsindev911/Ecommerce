@@ -4,7 +4,7 @@ const path=require('path');
 const db=require('./Config/mongoose-connection')
 const userRouter=require('./Routes/userRouter')
 const productRouter=require('./Routes/productRouter')
-const adminRouter=require('./Routes/adminRouter')
+const ownerRouter=require('./Routes/ownerRouter')
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -14,7 +14,7 @@ app.set('view engine','ejs')
 
 app.use('/users',userRouter)
 app.use('/products',productRouter)
-app.use('/admin',adminRouter)
+app.use('/owner',ownerRouter)
 
-app.listen(300)
+app.listen(3000)
 
