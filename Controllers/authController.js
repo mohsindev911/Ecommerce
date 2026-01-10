@@ -2,6 +2,9 @@ const UserModel=require('../Models/user-Model')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const {generateToken}=require('../Utils/generateToken')
+
+
+
 module.exports.registerUser= async function(req, res){
     try{
          let {UserName,email,password}=req.body
@@ -25,4 +28,25 @@ res.send("successfuly created user")
     if(err) return res.send(err.message)
     }
 
+}
+
+module.exports.loginUser= async function(req, res){
+    try{
+     let {email,password}=req.body;
+     let user= await UserModel.findOne({email:email})
+        if(!user) return res.status(400).send("user not found please register")
+        bcrypt.compare(password, user.password, function(err, result) {
+if(result){
+    let token = generateToken(user)
+    res.cookie('token',token)
+    res.send("login successful")
+}
+else{
+    res.status(400).send("Email or Password is incorrect")
+}
+});    
+    }
+    catch(err){
+    if(err) return res.send(err.message)
+    }
 }
