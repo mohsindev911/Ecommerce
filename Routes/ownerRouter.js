@@ -1,37 +1,30 @@
 const express=require('express');
 const router=express.Router();
-const ownerModel = require('../Models/owner-Model');
+const OwnerModel=require('../Models/owner-Model')
 const bcrypt=require('bcrypt')
-const jwt=require('jsonwebtoken')
 
 router.get('/', function(req, res){
-    res.render('ownerForm')
+    res. send('its owner working')
 })
-
 if(process.env.NODE_ENV==='development'){
-router.post('/create', async (req, res)=>{
-let{Name, email, password }=req.body;
-let owner= await ownerModel.find()
-if(owner.length > 0)
-    return res.status(500).send('you cannot allow to make a owner its already make')
-bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(password, salt,  async (err, hash) =>{
-        let createdOwner= await ownerModel.create({
-Name,
-email,
-password:hash
-})
-
-res.send(createdOwner)
+    router.post("/create", async function(req, res){
+       let Owner= await  OwnerModel.find()
+       if(Owner.length>0) return res.send("you cannot create another owner because already one exists")
+       let {Name,email,password} =req.body
+       bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(password, salt, async function(err, hash) {
+        let createdOwner= await OwnerModel.create({
+                    Name,
+                    email,
+                    password:hash
+    });
+      res.send(createdOwner)
     });
 });
-
-})
+    })
 }
 
 
-  
-   
 
 
 
