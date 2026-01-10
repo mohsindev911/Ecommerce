@@ -5,6 +5,7 @@ const db=require('./Config/mongoose-connection')
 const userRouter=require('./Routes/userRouter')
 const productRouter=require('./Routes/productRouter')
 const ownerRouter=require('./Routes/ownerRouter')
+require('dotenv').config()
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
