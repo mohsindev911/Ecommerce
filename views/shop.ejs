@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products UI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Top Navbar -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-600">ShopZone</h1>
+      <nav class="flex items-center gap-6 text-gray-700 font-medium">
+        <a href="#" class="hover:text-indigo-600">Products</a>
+        <a href="#" class="relative hover:text-indigo-600">
+          Cart
+          <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">3</span>
+        </a>
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+            <a href="/users/logout">Logout</a>
+            </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Left Filter Panel -->
+    <aside class="bg-white p-6 rounded-xl shadow-md">
+      <h2 class="text-lg font-semibold mb-4">Filters</h2>
+
+      <!-- Availability -->
+      <div class="mb-6">
+        <h3 class="font-medium mb-2">Availability</h3>
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" checked class="rounded text-indigo-600">
+          In Stock
+        </label>
+        <label class="flex items-center gap-2 text-sm mt-1">
+          <input type="checkbox" class="rounded text-indigo-600">
+          Out of Stock
+        </label>
+      </div>
+
+      <!-- Categories -->
+      <div class="mb-6">
+        <h3 class="font-medium mb-2">Category</h3>
+        <select class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500">
+          <option>All</option>
+          <option>Electronics</option>
+          <option>Clothing</option>
+          <option>Accessories</option>
+        </select>
+      </div>
+
+      <!-- Price Range -->
+      <div>
+        <h3 class="font-medium mb-2">Price Range</h3>
+        <input type="range" class="w-full accent-indigo-600">
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>$0</span>
+          <span>$1000</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Products Section -->
+    <section class="lg:col-span-3">
+      <h2 class="text-xl font-semibold mb-6">Products</h2>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Product Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="https://via.placeholder.com/300" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold">Wireless Headphones</h3>
+            <p class="text-sm text-gray-500">High quality sound</p>
+            <div class="flex justify-between items-center mt-3">
+              <span class="font-bold text-indigo-600">$120</span>
+              <button class="bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="https://via.placeholder.com/300" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold">Smart Watch</h3>
+            <p class="text-sm text-gray-500">Track your fitness</p>
+            <div class="flex justify-between items-center mt-3">
+              <span class="font-bold text-indigo-600">$180</span>
+              <button class="bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="https://via.placeholder.com/300" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold">Sneakers</h3>
+            <p class="text-sm text-gray-500">Comfortable & stylish</p>
+            <div class="flex justify-between items-center mt-3">
+              <span class="font-bold text-indigo-600">$95</span>
+              <button class="bg-indigo-600 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-indigo-700">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

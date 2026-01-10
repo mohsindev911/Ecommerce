@@ -4,7 +4,7 @@ const jwt=require('jsonwebtoken')
 const {generateToken}=require('../Utils/generateToken')
 
 
-
+// register controller
 module.exports.registerUser= async function(req, res){
     try{
          let {UserName,email,password}=req.body
@@ -19,7 +19,7 @@ password:hash
     });
 let token = generateToken(CreatedUser)
 res.cookie('token',token)
-res.send("successfuly created user")
+res.send("successfuly created user now login")
     });
 });  
          }
@@ -30,6 +30,7 @@ res.send("successfuly created user")
 
 }
 
+// login controller
 module.exports.loginUser= async function(req, res){
     try{
      let {email,password}=req.body;
@@ -39,7 +40,7 @@ module.exports.loginUser= async function(req, res){
 if(result){
     let token = generateToken(user)
     res.cookie('token',token)
-    res.send("login successful")
+    res.redirect('/shop')
 }
 else{
     res.status(400).send("Email or Password is incorrect")
@@ -49,4 +50,10 @@ else{
     catch(err){
     if(err) return res.send(err.message)
     }
+}
+
+// logout controller
+module.exports.logoutUser= function(req, res){
+    res.cookie('token',"")
+    return res.redirect('/')
 }
