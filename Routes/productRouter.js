@@ -20,7 +20,7 @@ router.post('/create',upload.single('img'), async function(req, res){
         img:req.file.buffer
     })
 req.flash("sucess","Product Added Successfully")
-res.redirect('/shop')
+res.redirect('/owner/admin')
 }catch(err){
     res.send(err.message)
    }
